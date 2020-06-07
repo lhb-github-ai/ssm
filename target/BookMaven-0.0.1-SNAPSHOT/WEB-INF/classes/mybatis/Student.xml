@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.lhb.ssm_vue.dao.StudentDao">
+    <select id="findAll" resultType="student">
+        select  * from student
+    </select>
+    <insert id="save" parameterType="student">
+      insert into student(studentId,studentName,password,sex,photo,clazzId,gradeId,remark) values(#{studentId},#{studentName},#{password},#{sex},#{photo},#{clazzId},#{gradeId},#{remark})
+    </insert>
+    <select id="findOne"  resultType="student">
+          select  * from student where studentName=#{studentName}
+    </select>
+    <update id="update" parameterType="student">
+          update student set studentId=#{studentId},studentName=#{studentName},password=#{password},sex=#{sex},photo=#{photo},clazzId=#{clazzId},gradeId=#{gradeId},remark=#{remark} where id=#{id}
+    </update>
+    <delete id="delete" parameterType="integer">
+        delete from student where id =#{id}
+    </delete>
+</mapper>

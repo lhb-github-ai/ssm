@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.lhb.ssm_vue.dao.ClazzDao">
+    <select id="findAll" resultType="clazz">
+       select * from user
+    </select>
+    <insert id="save" parameterType="clazz">
+      insert into clazz(name,gradeId,remark) values (#{name},#{gradeId},#{remark})
+    </insert>
+    <select id="findOne"  resultType="clazz">
+          select  * from clazz where name=#{name}
+    </select>
+    <update id="update" parameterType="clazz">
+          update clazz set name=#{name},gradeId=#{gradeId},remark=#{remark} where id=#{id}
+    </update>
+    <delete id="delete" parameterType="integer">
+        delete from clazz where id =#{id}
+    </delete>
+</mapper>

@@ -26,7 +26,7 @@ public class CollegeController {
     private CollegeService collegeService;
 
     @GetMapping("/findAll")
-    public PageInfo findAll(@RequestParam(value = "pageNum", defaultValue = "1") Integer pageNum,@RequestParam(value = "pageSize", defaultValue = "4") Integer pageSize){
+    public PageInfo findAll(@RequestParam(value = "pageNum", defaultValue = "1") Integer pageNum,@RequestParam(value = "pageSize", defaultValue = "7") Integer pageSize){
         PageHelper.startPage(pageNum,pageSize);
         List<College> colleges = collegeService.findAll();
         PageInfo<College> pageInfo = new PageInfo<>(colleges);

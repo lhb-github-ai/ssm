@@ -42,4 +42,14 @@ public class UseServiceImpl implements UserService {
     public int delete(Integer id) {
         return userDao.delete(id);
     }
+
+    @Override
+    public int check(String username, String password) {
+        User check = userDao.check(username, password);
+        if (check!=null){
+            return 1;
+        }else {
+            return 0;
+        }
+    }
 }

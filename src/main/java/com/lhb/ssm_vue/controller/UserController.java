@@ -73,4 +73,14 @@ public class UserController {
         }
         return map;
     }
+    @PostMapping("/check")
+    public String check(@RequestBody User user){
+        int check = userService.check(user.getUsername(), user.getPassword());
+        log.info(String.valueOf(check));
+        if (check>0){
+            return "success";
+        }
+
+        return "fail";
+    }
 }

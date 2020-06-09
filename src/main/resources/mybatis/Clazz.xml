@@ -3,7 +3,7 @@
 
 <mapper namespace="com.lhb.ssm_vue.dao.ClazzDao">
     <select id="findAll" resultType="clazz">
-       select * from user
+       select  clazz.* ,grade.name as gradeName from clazz ,grade where clazz.gradeId=grade.id
     </select>
     <insert id="save" parameterType="clazz">
       insert into clazz(name,gradeId,remark) values (#{name},#{gradeId},#{remark})

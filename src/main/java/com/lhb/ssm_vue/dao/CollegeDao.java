@@ -4,7 +4,6 @@ package com.lhb.ssm_vue.dao;/*
  */
 
 import com.lhb.ssm_vue.entity.College;
-import com.lhb.ssm_vue.entity.User;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -16,6 +15,8 @@ public interface CollegeDao {
     public List<College> findAll();
 
     public College findOne(String name);
+
+    public College findById(Integer id);
 
     public int update(College college);
 

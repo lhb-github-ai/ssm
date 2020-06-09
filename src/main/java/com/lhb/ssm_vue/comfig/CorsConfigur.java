@@ -13,8 +13,8 @@ public class CorsConfigur {
     //允许跨域访问的源服务器域名或ip地址
     private String[] orgins=new String[]{
             "localhost",
-            "127.0.0.1",
-            "localhost:8080"
+            "127.0.0.1:8081",
+            "localhost:8081"
     };
 
     @Bean

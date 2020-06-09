@@ -11,6 +11,11 @@
     <select id="findOne"  resultType="college">
           select  * from grade where name=#{name}
     </select>
+
+    <select id="findById"  resultType="college">
+        select  * from grade where id=#{id}
+    </select>
+
     <update id="update" parameterType="college">
           update grade set name=#{name},remark=#{remark} where id=#{id}
     </update>

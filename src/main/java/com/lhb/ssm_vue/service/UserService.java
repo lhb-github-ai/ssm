@@ -19,4 +19,6 @@ public interface UserService {
 
     public int delete(Integer id);
 
+    public int check(String username,String password);
+
 }

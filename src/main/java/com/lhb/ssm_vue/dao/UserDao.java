@@ -4,6 +4,7 @@ package com.lhb.ssm_vue.dao;/*
  */
 
 import com.lhb.ssm_vue.entity.User;
+import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -20,5 +21,7 @@ public interface UserDao {
     public int update(User user);
 
     public int delete(Integer id);
+
+    public User check(@Param("username") String username,@Param("password") String password);
 
 }

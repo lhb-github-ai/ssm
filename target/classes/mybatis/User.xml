@@ -17,4 +17,7 @@
     <delete id="delete" parameterType="integer">
         delete from user where id =#{id}
     </delete>
+    <select id="check" parameterType="user" resultType="user">
+        select * from user where username=#{username} and password=#{password}
+    </select>
 </mapper>

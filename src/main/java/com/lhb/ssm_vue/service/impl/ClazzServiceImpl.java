@@ -21,7 +21,8 @@ public class ClazzServiceImpl implements ClazzService {
 
     @Autowired
     private ClazzDao clazzDao;
-
+    @Autowired
+    private CollegeDao collegeDao;
 
     @Override
     public int save(Clazz clazz) {
@@ -40,6 +41,7 @@ public class ClazzServiceImpl implements ClazzService {
 
     @Override
     public int update(Clazz clazz) {
+            clazz.setGradeId(collegeDao.findOne(clazz.getGradeName()).getId());
         return clazzDao.update(clazz);
     }
 

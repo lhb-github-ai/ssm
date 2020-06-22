@@ -38,7 +38,7 @@
         <!-- 数据库连接池 -->
         <property name="dataSource" ref="dataSource" />
         <!-- 加载mybatis的全局配置文件 -->
-        <property name="typeAliasesPackage" value="com.lhb.ssm_vue.entity"></property>
+        <property name="typeAliasesPackage" value="com.lhb.entity"></property>
         <!-- 扫描映射文件 -->
         <property name="mapperLocations" value="classpath:mybatis/*.xml"></property>
 
@@ -58,12 +58,12 @@
     <!-- mapper扫描器 -->
     <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
         <!-- 扫描包路径，如果需要扫描多个包，中间使用半角逗号隔开 -->
-        <property name="basePackage" value="com.lhb.ssm_vue.dao"></property>
+        <property name="basePackage" value="com.lhb.dao"></property>
         <property name="sqlSessionFactoryBeanName" value="sqlSessionFactory" />
     </bean>
 
     <!-- service -->
-    <context:component-scan base-package="com.lhb.ssm_vue.service" />
+    <context:component-scan base-package="com.lhb.service" />
     <!--    <bean id="PersonService" class="com.book.service.impl.PersonServiceImpl" />-->
 
 

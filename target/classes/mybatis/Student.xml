@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="com.lhb.ssm_vue.dao.StudentDao">
+<mapper namespace="com.lhb.dao.StudentDao">
     <select id="findAll" resultType="student">
-        select  * from student
+        select  student.* ,grade.name as gradeName,clazz.name as clazzName  from student ,grade,clazz where student.clazzId=clazz.id and student.gradeId=grade.id
     </select>
     <insert id="save" parameterType="student">
       insert into student(studentId,studentName,password,sex,photo,clazzId,gradeId,remark) values(#{studentId},#{studentName},#{password},#{sex},#{photo},#{clazzId},#{gradeId},#{remark})
@@ -11,10 +11,16 @@
     <select id="findOne"  resultType="student">
           select  * from student where studentName=#{studentName}
     </select>
+    <select id="findOne2" resultType="student" parameterType="String">
+        select  student.* ,grade.name as gradeName,clazz.name as clazzName  from student ,grade,clazz where student.clazzId=clazz.id and student.gradeId=grade.id and studentName=#{studentName}
+    </select>
     <update id="update" parameterType="student">
           update student set studentId=#{studentId},studentName=#{studentName},password=#{password},sex=#{sex},photo=#{photo},clazzId=#{clazzId},gradeId=#{gradeId},remark=#{remark} where id=#{id}
     </update>
     <delete id="delete" parameterType="integer">
         delete from student where id =#{id}
     </delete>
+    <select id="check" parameterType="student" resultType="student">
+        select * from student where studentName=#{studentName} and password=#{password}
+    </select>
 </mapper>

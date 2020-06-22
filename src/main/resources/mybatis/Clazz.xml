@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="com.lhb.ssm_vue.dao.ClazzDao">
+<mapper namespace="com.lhb.dao.ClazzDao">
     <select id="findAll" resultType="clazz">
        select  clazz.* ,grade.name as gradeName from clazz ,grade where clazz.gradeId=grade.id
     </select>
@@ -10,6 +10,9 @@
     </insert>
     <select id="findOne"  resultType="clazz">
           select  * from clazz where name=#{name}
+    </select>
+    <select id="findAllClazz"  resultType="clazz">
+        select  clazz.* ,grade.name as gradeName from clazz ,grade where clazz.gradeId=grade.id and gradeId=#{gradeId}
     </select>
     <update id="update" parameterType="clazz">
           update clazz set name=#{name},gradeId=#{gradeId},remark=#{remark} where id=#{id}

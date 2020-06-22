@@ -16,7 +16,7 @@
     <!-- 可以扫描controller、service、...
     这里让扫描controller，指定controller的包
      -->
-    <context:component-scan base-package="com.lhb.ssm_vue.controller"></context:component-scan>
+    <context:component-scan base-package="com.lhb.controller"></context:component-scan>
     <mvc:annotation-driven ></mvc:annotation-driven>
     <mvc:annotation-driven/>
 
@@ -47,5 +47,11 @@
             </props>
         </property>
     </bean>
-
+    <mvc:interceptors>
+        <mvc:interceptor>
+            <mvc:mapping path="/**"/>
+            <mvc:exclude-mapping path="/"/>
+            <bean class="com.lhb.interceptor.LoginInterceptor"></bean>
+        </mvc:interceptor>
+    </mvc:interceptors>
 </beans>

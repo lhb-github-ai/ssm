@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="com.lhb.ssm_vue.dao.CollegeDao">
+<mapper namespace="com.lhb.dao.CollegeDao">
     <select id="findAll" resultType="college">
         select  * from grade
     </select>
